@@ -2,6 +2,30 @@
 每周都要被团支书催着做青年大学习，虽然网上也有很多办法可以秒过，但是还是得打开微信公众号然后点击最新一期的青年大学习。我就想能不能有办法每周自动帮我完成呢？本着能copy就不自己动手的原则，我在github逛了半天，结果并没有发现江苏省青年大学习自动学习相关代码，无奈只好自己写一个了。
 
 ---
+## 使用教程
+
+- 修改main.py中的laravel_session
+
+```java
+ public static void main(String[] args) throws IOException {
+        Qndxx qndxx=new Qndxx();
+        String laravel_session="8rAucTd84mpMLxilmCjeWO08rbtC7opDnrwo9YvJ";//laravel_session需要自行抓包
+
+        Map<String,Object> userinfo=qndxx.qndxx_action(laravel_session);//调用qndxx_action方法 返回map信息
+
+        if (userinfo.size() > 2) {
+            System.out.println(userinfo);
+            System.out.println(qndxx.qndxx_confirm(userinfo));//调用qndxx_confirm方法 返回json信息
+        }else {
+            System.out.println("error");
+        }
+
+    }
+
+```
+
+- 运行main.java
+
 
 ### 实现原理
 
